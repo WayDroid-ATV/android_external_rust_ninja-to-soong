@@ -13,8 +13,9 @@ shift 3
 CMAKE_ARGS=$@
 
 cmake -B "${BUILD_PATH}" -S "${SRC_PATH}" -G Ninja \
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_TOOLCHAIN_FILE="${NDK_PATH}/build/cmake/android.toolchain.cmake" \
     -DANDROID_ABI="arm64-v8a" \
-    -DANDROID_PLATFORM="35" \
+    -DANDROID_PLATFORM="33" \
     ${CMAKE_ARGS}
