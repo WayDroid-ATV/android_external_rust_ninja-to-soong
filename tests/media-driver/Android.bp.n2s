@@ -1788,8 +1788,8 @@ cc_library_shared {
         "-DIGFX_XE2_HPG_SUPPORTED",
         "-DIGFX_XEHP_SDV_SUPPORTED",
         "-DIGFX_XE_HPG_SUPPORTED",
-        "-DMEDIA_VERSION=\"25.4.4\"",
-        "-DMEDIA_VERSION_DETAILS=\"39a3e82\"",
+        "-DMEDIA_VERSION=\"25.4.6\"",
+        "-DMEDIA_VERSION_DETAILS=\"7cd742ee\"",
         "-DVEBOX_AUTO_DENOISE_SUPPORTED=1",
         "-D_AV1_DECODE_SUPPORTED",
         "-D_AV1_ENCODE_VDENC_SUPPORTED",
@@ -2402,6 +2402,7 @@ cc_library_shared {
         "media_softlet/linux/common/codec/ddi/dec",
         "media_softlet/linux/common/codec/ddi/enc",
         "media_softlet/linux/common/codec/ddi/shared",
+        "media_softlet/linux/common/cp",
         "media_softlet/linux/common/cp/ddi",
         "media_softlet/linux/common/ddi",
         "media_softlet/linux/common/os",
@@ -2479,6 +2480,20 @@ cc_library_shared {
         "media_softlet/media_interface/media_interfaces_ptl",
     ],
     defaults: ["media-driver-defaults"],
+}
+
+cc_library_headers {
+    name: "libcmrt_headers",
+    export_include_dirs: [
+        "cmrtlib/linux/hardware",
+    ],
+    vendor: true,
+    enabled: false,
+    arch: {
+        x86_64: {
+            enabled: true,
+        },
+    },
 }
 
 cc_defaults {

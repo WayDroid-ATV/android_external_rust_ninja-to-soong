@@ -55,6 +55,20 @@ impl Project for MediaDriver {
         )?
         .add_raw_suffix(&format!(
             r#"
+cc_library_headers {{
+    name: "libcmrt_headers",
+    export_include_dirs: [
+        "cmrtlib/linux/hardware",
+    ],
+    vendor: true,
+    enabled: false,
+    arch: {{
+        x86_64: {{
+            enabled: true,
+        }},
+    }},
+}}
+
 cc_defaults {{
     name: "{DEFAULTS}",
     cflags: [
@@ -111,7 +125,6 @@ cc_defaults {{
         include.starts_with(&self.src_path)
             && !include.starts_with(self.src_path.join(".."))
             && !include.starts_with(self.src_path.join("cmrtlib"))
-            && include != self.src_path.join("media_softlet/linux/common/cp")
     }
     fn filter_link_flag(&self, _flag: &str) -> bool {
         false
