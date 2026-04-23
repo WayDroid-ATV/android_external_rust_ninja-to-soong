@@ -8,7 +8,7 @@ set -xe
 DEST="$1"
 SCRIPT_DIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
 
-bash "${SCRIPT_DIR}/../checkout.sh" https://github.com/intel/media-driver.git d892c528eb7d62468ad0a9ba88a5ec6c9c30289a "${DEST}/vendor/intel/media-driver"
+bash "${SCRIPT_DIR}/../checkout.sh" https://github.com/intel/media-driver.git 1d2d8e96aeaba0471dc7fd0a7e85190519758fc5 "${DEST}/vendor/intel/media-driver"
 
 sudo apt-get update
 sudo apt install libtool libdrm-dev xorg xorg-dev openbox libx11-dev libgl1 libglx-mesa0
