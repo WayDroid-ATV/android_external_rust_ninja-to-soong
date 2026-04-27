@@ -62,7 +62,11 @@ cc_library_headers {{
     ],
     vendor: true,
     enabled: false,
+    compile_multilib: "first",
     arch: {{
+        x86: {{
+            enabled: true,
+        }},
         x86_64: {{
             enabled: true,
         }},
@@ -95,7 +99,11 @@ cc_defaults {{
     ],
     rtti: true,
     enabled: false,
+    compile_multilib: "first",
     arch: {{
+        x86: {{
+            enabled: true,
+        }},
         x86_64: {{
             enabled: true,
         }},
